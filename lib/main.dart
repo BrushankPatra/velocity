@@ -25,23 +25,23 @@ class UnoriginalApp extends StatelessWidget {
           children: [
             Text("The question!"),
             ElevatedButton(
-              onPressed: null,
+              onPressed: answerQuestion,
               child: Text("Option 1"),
             ),
             ElevatedButton(
-              onPressed: null,
+              onPressed: answerQuestion,
               child: Text("Option 2"),
             ),
             ElevatedButton(
-              onPressed: null,
+              onPressed: answerQuestion,
               child: Text("Option 3"),
             ),
             ElevatedButton(
-              onPressed: null,
+              onPressed: answerQuestion,
               child: Text("Option 4"),
             ),
             ElevatedButton(
-              onPressed: null,
+              onPressed: answerQuestion,
               child: Text("Option 5"),
             ),
           ],
