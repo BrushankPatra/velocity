@@ -6,16 +6,16 @@ class UnoriginalApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return UnoriginalAppState();
+    return _UnoriginalAppState();
   }
 }
 
-class UnoriginalAppState extends State<UnoriginalApp> {
-  var questionIndex = 0;
+class _UnoriginalAppState extends State<UnoriginalApp> {
+  var _questionIndex = 0;
 
-  void answerQuestion() {
+  void _answerQuestion() {
     setState(() {
-      questionIndex += 1;
+      _questionIndex += 1;
     });
     print("answer chosen!");
   }
@@ -36,25 +36,25 @@ class UnoriginalAppState extends State<UnoriginalApp> {
         ),
         body: Column(
           children: [
-            Text(questions[questionIndex]),
+            Text(questions[_questionIndex]),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: Text("Option 1"),
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: Text("Option 2"),
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: Text("Option 3"),
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: Text("Option 4"),
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: Text("Option 5"),
             ),
           ],
