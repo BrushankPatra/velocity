@@ -17,7 +17,31 @@ class UnoriginalApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Quiz App"),
         ),
-        body: Column(children: []),
+        body: Column(
+          children: [
+            Text("The question!"),
+            ElevatedButton(
+              onPressed: null,
+              child: Text("Option 1"),
+            ),
+            ElevatedButton(
+              onPressed: null,
+              child: Text("Option 2"),
+            ),
+            ElevatedButton(
+              onPressed: null,
+              child: Text("Option 3"),
+            ),
+            ElevatedButton(
+              onPressed: null,
+              child: Text("Option 4"),
+            ),
+            ElevatedButton(
+              onPressed: null,
+              child: Text("Option 5"),
+            ),
+          ],
+        ),
       ),
     );
   }
