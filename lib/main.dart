@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 void main() => runApp(UnoriginalApp());
 
 class UnoriginalApp extends StatelessWidget {
+  var questionIndex = 0;
+
   void answerQuestion() {
+    questionIndex += 1;
     print("answer chosen!");
   }
 
@@ -23,7 +26,7 @@ class UnoriginalApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text("The question!"),
+            Text(questions[questionIndex]),
             ElevatedButton(
               onPressed: answerQuestion,
               child: Text("Option 1"),
