@@ -2,11 +2,21 @@ import "package:flutter/material.dart";
 
 void main() => runApp(UnoriginalApp());
 
-class UnoriginalApp extends StatelessWidget {
+class UnoriginalApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return UnoriginalAppState();
+  }
+}
+
+class UnoriginalAppState extends State<UnoriginalApp> {
   var questionIndex = 0;
 
   void answerQuestion() {
-    questionIndex += 1;
+    setState(() {
+      questionIndex += 1;
+    });
     print("answer chosen!");
   }
 
