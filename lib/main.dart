@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 
 import "./question.dart";
+import "./answer.dart";
 
 void main() => runApp(UnoriginalApp());
 
@@ -39,26 +40,11 @@ class _UnoriginalAppState extends State<UnoriginalApp> {
         body: Column(
           children: [
             Question(questions[_questionIndex]),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: Text("Option 1"),
-            ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: Text("Option 2"),
-            ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: Text("Option 3"),
-            ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: Text("Option 4"),
-            ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: Text("Option 5"),
-            ),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
           ],
         ),
       ),
