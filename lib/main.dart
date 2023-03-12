@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 
+import "./question.dart";
+
 void main() => runApp(UnoriginalApp());
 
 class UnoriginalApp extends StatefulWidget {
@@ -36,7 +38,7 @@ class _UnoriginalAppState extends State<UnoriginalApp> {
         ),
         body: Column(
           children: [
-            Text(questions[_questionIndex]),
+            Question(questions[_questionIndex]),
             ElevatedButton(
               onPressed: _answerQuestion,
               child: Text("Option 1"),
