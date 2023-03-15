@@ -26,11 +26,39 @@ class _UnoriginalAppState extends State<UnoriginalApp> {
   @override
   Widget build(BuildContext context) {
     const questions = [
-      "Which car manufacturer do you like?",
-      "Which smartphone brand do you prefer?",
-      "Which brand do you like for its laptops?",
-      "Which tech YouTube channel do you like the most?",
-      "For which of the following services do you pay a premium?"
+      {
+        "questionText": "Which car manufacturer do you like?",
+        "answers": ["BMW", "Volvo", "Porsche", "Audi", "Jaguar"]
+      },
+      {
+        "questionText": "Which smartphone brand do you prefer?",
+        "answers": ["Samsung", "Apple", "Google", "Sony", "OnePlus"]
+      },
+      {
+        "questionText": "Which brand do you like for its laptops?",
+        "answers": ["Apple", "Samsung", "Acer", "Asus", "MSI"]
+      },
+      {
+        "questionText": "Which tech YouTube channel do you like the most?",
+        "answers": [
+          "MKBHD",
+          "The Tech Chap",
+          "MrMobile",
+          "MrWhoseTheBoss",
+          "Dave2D"
+        ]
+      },
+      {
+        "questionText":
+            "For which of the following services do you pay a premium?",
+        "answers": [
+          "YouTube",
+          "Spotify",
+          "Amazon Prime",
+          "HealthifyMe",
+          "Zomato"
+        ]
+      },
     ];
     return MaterialApp(
       home: Scaffold(
@@ -39,12 +67,13 @@ class _UnoriginalAppState extends State<UnoriginalApp> {
         ),
         body: Column(
           children: [
-            Question(questions[_questionIndex]),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
+            Question(
+              questions[_questionIndex]["questionText"] as String,
+            ),
+            ...(questions[_questionIndex]["answers"] as List<String>)
+                .map((answer) {
+              return Answer(_answerQuestion, answer);
+            }).toList(),
           ],
         ),
       ),
