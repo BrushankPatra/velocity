@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
-import "./question.dart";
-import "./answer.dart";
+import "./quiz.dart";
+import "./result.dart";
 
 void main() => runApp(UnoriginalApp());
 
@@ -16,7 +16,7 @@ class UnoriginalApp extends StatefulWidget {
 class _UnoriginalAppState extends State<UnoriginalApp> {
   var _questionIndex = 0;
 
-  static const questions = [
+  static const _questions = [
     {
       "questionText": "Which car manufacturer do you like?",
       "answers": ["BMW", "Volvo", "Porsche", "Audi", "Jaguar"]
@@ -51,7 +51,7 @@ class _UnoriginalAppState extends State<UnoriginalApp> {
       _questionIndex += 1;
     });
     print("answer chosen!");
-    if (_questionIndex < questions.length) {
+    if (_questionIndex < _questions.length) {
       print("We have more questions!");
     }
   }
@@ -63,19 +63,13 @@ class _UnoriginalAppState extends State<UnoriginalApp> {
         appBar: AppBar(
           title: Text("Quiz App"),
         ),
-        body: _questionIndex < questions.length
-            ? Column(
-                children: [
-                  Question(
-                    questions[_questionIndex]["questionText"] as String,
-                  ),
-                  ...(questions[_questionIndex]["answers"] as List<String>)
-                      .map((answer) {
-                    return Answer(_answerQuestion, answer);
-                  }).toList(),
-                ],
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                questions: _questions,
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
               )
-            : Center(child: Text("YOU DID IT!")),
+            : Result(),
       ),
     );
   }
