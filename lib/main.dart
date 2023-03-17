@@ -17,6 +17,13 @@ class _UnoriginalAppState extends State<UnoriginalApp> {
   var _questionIndex = 0;
   var _totalScore = 0;
 
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
+
   static const _questions = [
     {
       "questionText": "Which car manufacturer do you like?",
@@ -95,7 +102,7 @@ class _UnoriginalAppState extends State<UnoriginalApp> {
                 answerQuestion: _answerQuestion,
                 questionIndex: _questionIndex,
               )
-            : Result(_totalScore),
+            : Result(_totalScore, _resetQuiz),
       ),
     );
   }
