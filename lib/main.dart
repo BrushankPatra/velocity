@@ -15,45 +15,71 @@ class UnoriginalApp extends StatefulWidget {
 
 class _UnoriginalAppState extends State<UnoriginalApp> {
   var _questionIndex = 0;
+  var _totalScore = 0;
 
   static const _questions = [
     {
       "questionText": "Which car manufacturer do you like?",
-      "answers": ["BMW", "Volvo", "Porsche", "Audi", "Jaguar"]
+      "answers": [
+        {"text": "BMW", "score": 3},
+        {"text": "Volvo", "score": 5},
+        {"text": "Porsche", "score": 2},
+        {"text": "Audi", "score": 1},
+        {"text": "Jaguar", "score": 4},
+      ]
     },
     {
       "questionText": "Which smartphone brand do you prefer?",
-      "answers": ["Samsung", "Apple", "Google", "Sony", "OnePlus"]
+      "answers": [
+        {"text": "Samsung", "score": 4},
+        {"text": "Apple", "score": 5},
+        {"text": "Google", "score": 3},
+        {"text": "Sony", "score": 2},
+        {"text": "OnePlus", "score": 1},
+      ]
     },
     {
       "questionText": "Which brand do you like for its laptops?",
-      "answers": ["Apple", "Samsung", "Acer", "Asus", "MSI"]
+      "answers": [
+        {"text": "Apple", "score": 5},
+        {"text": "Samsung", "score": 3},
+        {"text": "Acer", "score": 4},
+        {"text": "Asus", "score": 1},
+        {"text": "MSI", "score": 2},
+      ]
     },
     {
       "questionText": "Which tech YouTube channel do you like the most?",
       "answers": [
-        "MKBHD",
-        "The Tech Chap",
-        "MrMobile",
-        "MrWhoseTheBoss",
-        "Dave2D"
+        {"text": "MKBHD", "score": 5},
+        {"text": "The Tech Chap", "score": 1},
+        {"text": "MrMobile", "score": 4},
+        {"text": "MrWhoseTheBoss", "score": 3},
+        {"text": "Dave2D", "score": 2},
       ]
     },
     {
       "questionText":
           "For which of the following services do you pay a premium?",
-      "answers": ["YouTube", "Spotify", "Amazon Prime", "HealthifyMe", "Zomato"]
+      "answers": [
+        {"text": "YouTube Premium", "score": 5},
+        {"text": "Spotify", "score": 3},
+        {"text": "Amazon Prime", "score": 4},
+        {"text": "HealthifyMe", "score": 1},
+        {"text": "Zomato", "score": 2},
+      ]
     },
   ];
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
+    _totalScore += score;
     setState(() {
       _questionIndex += 1;
     });
-    print("answer chosen!");
-    if (_questionIndex < _questions.length) {
-      print("We have more questions!");
-    }
+    print(_questionIndex);
+    // if (_questionIndex < _questions.length) {
+    //   print("We have more questions!");
+    // }
   }
 
   @override
@@ -69,7 +95,7 @@ class _UnoriginalAppState extends State<UnoriginalApp> {
                 answerQuestion: _answerQuestion,
                 questionIndex: _questionIndex,
               )
-            : Result(),
+            : Result(_totalScore),
       ),
     );
   }
