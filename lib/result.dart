@@ -32,6 +32,10 @@ class Result extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              foregroundColor: Colors.blueGrey,
+              side: BorderSide(color: Colors.blueGrey),
+            ),
             onPressed: resetHandler,
             child: Text("Reset Quiz"),
           )
